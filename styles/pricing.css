@@ -1,0 +1,96 @@
+/* Pricing Section Styles */
+
+.pricing {
+    background: var(--color-primary-gradient);
+    padding: var(--spacing-4xl) 0;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.pricing-card {
+    background: var(--color-background-primary);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-2xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border: 3px solid var(--color-accent-gold);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-2xl);
+}
+
+.pricing-card h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.price {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    color: var(--color-accent-gold);
+    margin-bottom: var(--spacing-md);
+}
+
+.price span {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-regular);
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-card li {
+    padding: var(--spacing-sm) 0;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-ui-border);
+}
+
+.pricing-card li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Pricing */
+@media (max-width: 768px) {
+    .pricing {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
+    }
+    
+    .pricing-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .pricing-card.featured {
+        transform: none;
+        order: -1;
+    }
+    
+    .pricing-card h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .price {
+        font-size: var(--font-size-3xl);
+    }
+}

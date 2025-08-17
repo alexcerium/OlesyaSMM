@@ -1,0 +1,112 @@
+/* Clients Section Styles */
+
+.clients {
+    background: var(--color-primary-gradient);
+    padding: var(--spacing-4xl) 0;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.client-card {
+    background: var(--color-background-primary);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-2xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+}
+
+.client-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-2xl);
+}
+
+.client-image {
+    width: 120px;
+    height: 120px;
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.client-project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.client-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-2xl);
+    color: var(--color-accent-gold);
+    background: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.client-card:hover .client-icon {
+    opacity: 1;
+}
+
+.client-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.client-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.results {
+    background: var(--color-accent-gold);
+    color: var(--color-text-primary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive Clients */
+@media (max-width: 768px) {
+    .clients {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .clients-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
+    }
+    
+    .client-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .client-image {
+        width: 100px;
+        height: 100px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .client-card h3 {
+        font-size: var(--font-size-lg);
+    }
+}

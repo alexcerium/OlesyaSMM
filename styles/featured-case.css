@@ -1,0 +1,139 @@
+/* Featured Case Section Styles */
+
+.featured-case {
+    background: var(--color-background-primary);
+    padding: var(--spacing-4xl) 0;
+}
+
+.case-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
+    align-items: center;
+}
+
+.case-text h3 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.case-text p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-relaxed);
+}
+
+.case-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.result-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-xl);
+}
+
+.result-number {
+    display: block;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-black);
+    color: var(--color-accent-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.result-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.case-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.case-image {
+    width: 400px;
+    height: 300px;
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    position: relative;
+}
+
+.case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Fallback icon */
+.case-image::before {
+    content: '\f080';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: var(--font-size-5xl);
+    color: var(--color-accent-gold);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Show fallback when image fails to load */
+.case-image.no-image::before {
+    z-index: 1;
+}
+
+/* Responsive Featured Case */
+@media (max-width: 768px) {
+    .featured-case {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .case-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        padding: 0 var(--spacing-md);
+    }
+    
+    .case-text h3 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .case-text p {
+        font-size: var(--font-size-base);
+    }
+    
+    .case-results {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .result-item {
+        padding: var(--spacing-md);
+    }
+    
+    .result-number {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .case-image {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+    }
+}

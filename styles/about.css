@@ -1,0 +1,115 @@
+/* About Section Styles */
+
+.about {
+    background: var(--color-background-primary);
+    padding: var(--spacing-4xl) 0;
+}
+
+.about-content {
+    display: grid;
+    gap: var(--spacing-3xl);
+}
+
+.about-text p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.skills-section, .software-section {
+    margin-top: var(--spacing-xl);
+}
+
+.skills-section h3, .software-section h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-xl);
+    transition: transform var(--transition-normal);
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: var(--font-size-2xl);
+    color: var(--color-accent-gold);
+}
+
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.software-item {
+    padding: var(--spacing-md);
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    transition: transform var(--transition-normal);
+}
+
+.software-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive About */
+@media (max-width: 768px) {
+    .about {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .about-content {
+        gap: var(--spacing-2xl);
+        padding: 0 var(--spacing-md);
+    }
+    
+    .about-text p {
+        font-size: var(--font-size-base);
+    }
+    
+    .skills-section h3, .software-section h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .skill-item {
+        padding: var(--spacing-md);
+    }
+    
+    .skill-item i {
+        font-size: var(--font-size-xl);
+    }
+    
+    .software-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .software-item {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+}
