@@ -35,23 +35,33 @@
 .result-item {
     text-align: center;
     padding: var(--spacing-lg);
-    background: var(--color-primary-gradient);
+    background: var(--color-background-primary);
+    border: 2px solid #C9A676;
     border-radius: var(--border-radius-xl);
+    transition: all var(--transition-normal);
+}
+
+.result-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 166, 118, 0.2);
 }
 
 .result-number {
     display: block;
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-black);
-    color: var(--color-accent-gold);
+    color: #C9A676;
     margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
 }
 
 .result-label {
     font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+    color: #8B4513;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-tight);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-heading);
 }
 
 .case-visual {
@@ -60,43 +70,20 @@
 }
 
 .case-image {
-    width: 400px;
-    height: 300px;
-    background: var(--color-primary-gradient);
-    border-radius: var(--border-radius-2xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-2xl);
-    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
     position: relative;
 }
 
 .case-study-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+    display: block;
 }
 
-/* Fallback icon */
-.case-image::before {
-    content: '\f080';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    font-size: var(--font-size-5xl);
-    color: var(--color-accent-gold);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-/* Show fallback when image fails to load */
-.case-image.no-image::before {
-    z-index: 1;
-}
+/* Clean image display - no decorative elements */
 
 /* Responsive Featured Case */
 @media (max-width: 768px) {
@@ -133,7 +120,7 @@
     
     .case-image {
         width: 100%;
-        max-width: 400px;
-        height: 250px;
+        max-width: 500px;
+        height: auto;
     }
 }

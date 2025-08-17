@@ -4,29 +4,29 @@ const siteData = {
     site: {
         title: "Professional SMM Specialist",
         logo: "SMM PRO",
-        description: "Transforming brands through strategic social media marketing"
+        description: ""
     },
 
     // Navigation
     navigation: [
-        { id: "home", label: "Home", href: "#home" },
-        { id: "about", label: "About", href: "#about" },
-        { id: "clients", label: "Clients", href: "#clients" },
-        { id: "case", label: "Case", href: "#case" },
-        { id: "pricing", label: "Pricing", href: "#pricing" },
-        { id: "workflow", label: "Workflow", href: "#workflow" },
-        { id: "faq", label: "FAQ", href: "#faq" },
-        { id: "certificates", label: "Certificates", href: "#certificates" },
-        { id: "contact", label: "Contact", href: "#contact" }
+        { id: "home", label: "ГЛАВНАЯ", href: "#home" },
+        { id: "about", label: "ОБО МНЕ", href: "#about" },
+        { id: "clients", label: "КЛИЕНТЫ", href: "#clients" },
+        { id: "case", label: "КЕЙС", href: "#case" },
+        { id: "pricing", label: "ЦЕНЫ", href: "#pricing" },
+        { id: "workflow", label: "ЭТАПЫ", href: "#workflow" },
+        { id: "faq", label: "ВОПРОСЫ", href: "#faq" },
+        { id: "certificates", label: "СЕРТИФИКАТЫ", href: "#certificates" },
+        { id: "contact", label: "КОНТАКТЫ", href: "#contact" }
     ],
 
     // Hero Section
     hero: {
         title: "PROFESSIONAL SMM SPECIALIST",
-        subtitle: "Transforming brands through strategic social media marketing",
+        subtitle: "Приведу вам клиентов через стратегический SMM",
         buttons: [
-            { text: "Download CV", href: "#", type: "primary" },
-            { text: "Contact Me", href: "#contact", type: "secondary" }
+            { text: "Скачать портфолио", href: "/assets/Portfolio.pdf", type: "primary", download: "Portfolio.pdf" },
+            { text: "Связаться со мной", href: "#contact", type: "secondary" }
         ]
     },
 
@@ -34,27 +34,51 @@ const siteData = {
     about: {
         title: "ABOUT ME",
         content: [
-            "I am a passionate SMM specialist with over 5 years of experience in creating engaging social media strategies that drive real business results. My expertise spans across Instagram, Facebook, TikTok, and LinkedIn marketing.",
-            "I specialize in content creation, community management, influencer partnerships, and data-driven campaign optimization. Every project I work on is approached with creativity, strategy, and measurable outcomes in mind."
+            "Меня зовут Олеся Голоскова. Я создаю стратегии и контент для брендов, которые хотят быть ближе к своей аудитории. Для меня SMM — это не только про лайки и подписчиков, а про эмоции, доверие и результат. Я умею превращать сухие факты в живые истории, которые вовлекают и продают.",
+            "Моя цель - сделать так, чтобы ваш бренд звучал в социальных сетях искренне и интересно, выделялся среди конкурентов и находил «своих» людей."
         ],
-        skills: {
-            title: "Skills & Expertise",
+        software: {
+            title: "Использую в работе",
             items: [
-                { icon: "fas fa-chart-line", text: "Strategy Development" },
-                { icon: "fas fa-camera", text: "Content Creation" },
-                { icon: "fas fa-users", text: "Community Management" },
-                { icon: "fas fa-analytics", text: "Analytics & Reporting" }
+                "FaceApp",
+                "Snapseed",
+                "CapCut",
+                "ChatGPT",
+                "Canva",
+                "Pinterest",
+                "Behance",
+                "Graphionica",
+                "BeautyPlus",
+                "Avatan",
+                "Facetune",
+                "Lightroom",
+                "MalibooMake",
+                "Picsart"
             ]
         },
-        software: {
-            title: "Software & Tools",
+        collaborators: {
+            title: "В ходе работы взаимодействовала",
             items: [
-                "Canva Pro",
-                "Adobe Creative Suite",
-                "Later",
-                "Hootsuite",
-                "Google Analytics",
-                "Meta Business Suite"
+                { 
+                    brand: "inwhite collection", 
+                    link: "https://www.instagram.com/inwhite_collection_?igsh=MTg1NmJlMGVsd250MQ==" 
+                },
+                { 
+                    brand: "amalicouture", 
+                    link: "https://www.instagram.com/amalicouture?igsh=c2JncGJkbG5qangy" 
+                },
+                { 
+                    brand: "secret beauty cosmetics", 
+                    link: "https://www.instagram.com/secret_beauty_cosmetics_?igsh=MTZyNWRyaWV3YWthdA==" 
+                },
+                { 
+                    brand: "salutbon", 
+                    link: "https://www.instagram.com/salutbcn?igsh=MXBycWR6amlsNnVreg==" 
+                },
+                { 
+                    brand: "salonprop", 
+                    link: "https://www.instagram.com/salonprop?igsh=MWduazk4dHU3Nmlraw==" 
+                }
             ]
         }
     },
@@ -65,90 +89,41 @@ const siteData = {
         items: [
             {
                 id: 1,
-                icon: "fab fa-instagram",
-                title: "Fashion Brand",
-                description: "Luxury fashion boutique",
-                results: "+150% engagement",
-                image: "assets/images/clients-fashion-brand.jpg",
-                modalData: {
-                    title: "Fashion Brand Transformation",
-                    description: "Complete social media overhaul for a luxury fashion boutique",
-                    stats: {
-                        followers: "+250%",
-                        engagement: "8.5%",
-                        reach: "+400%"
-                    },
-                    images: [
-                        "assets/images/case-study-hero.jpg",
-                        "assets/images/case-study-before.jpg",
-                        "assets/images/case-study-after.jpg"
-                    ]
+                preview: "inwhite-preview.jpeg",
+                title: "Dress Rental Boutique",
+                description: "Элегантный сервис аренды платьев",
+                results: "+150% вовлечённости",
+                modal: {
+                    image: "inwhite.jpeg",
+                    title: "INWHITE Dress Rental Boutique",
+                    text: "Акцент на элегантный сервис аренды с разнообразием стилей и удобством для клиента.",
+                    stats: { followers: "+250%", engagement: "8.5%", reach: "+400%" }
                 }
             },
             {
                 id: 2,
-                icon: "fas fa-utensils",
+                preview: "restaurant-preview.jpeg",
                 title: "Restaurant Chain",
-                description: "Fine dining establishment",
-                results: "+200% followers",
-                image: "assets/images/clients-restaurant-chain.jpg",
-                modalData: {
-                    title: "Restaurant Chain Success",
-                    description: "Social media strategy for fine dining establishment",
-                    stats: {
-                        followers: "+200%",
-                        engagement: "12.3%",
-                        reach: "+350%"
-                    },
-                    images: [
-                        "assets/images/case-study-hero.jpg",
-                        "assets/images/case-study-before.jpg",
-                        "assets/images/case-study-after.jpg"
-                    ]
+                description: "Ресторан премиального уровня",
+                results: "+200% подписчиков",
+                modal: {
+                    image: "restaurant.jpeg",
+                    title: "LUXURY Restaurant Chain",
+                    text: "SMM-стратегия с акцентом на кулинарное совершенство и незабываемый клиентский опыт.",
+                    stats: { followers: "+200%", engagement: "12.3%", reach: "+350%" }
                 }
             },
             {
                 id: 3,
-                icon: "fas fa-spa",
+                preview: "beauty-preview.jpeg",
                 title: "Beauty Salon",
-                description: "Premium beauty services",
-                results: "+300% bookings",
-                image: "assets/images/clients-beauty-salon.jpg",
-                modalData: {
-                    title: "Beauty Salon Growth",
-                    description: "Premium beauty services social media campaign",
-                    stats: {
-                        followers: "+300%",
-                        engagement: "15.7%",
-                        reach: "+500%"
-                    },
-                    images: [
-                        "assets/images/case-study-hero.jpg",
-                        "assets/images/case-study-before.jpg",
-                        "assets/images/case-study-after.jpg"
-                    ]
-                }
-            },
-            {
-                id: 4,
-                icon: "fas fa-dumbbell",
-                title: "Fitness Studio",
-                description: "Personal training center",
-                results: "+180% members",
-                image: "assets/images/clients-fitness-studio.jpg",
-                modalData: {
-                    title: "Fitness Studio Expansion",
-                    description: "Personal training center social media strategy",
-                    stats: {
-                        followers: "+180%",
-                        engagement: "9.2%",
-                        reach: "+280%"
-                    },
-                    images: [
-                        "assets/images/case-study-hero.jpg",
-                        "assets/images/case-study-before.jpg",
-                        "assets/images/case-study-after.jpg"
-                    ]
+                description: "Премиальные бьюти-услуги",
+                results: "+300% записей",
+                modal: {
+                    image: "beauty.jpeg",
+                    title: "PREMIUM Beauty Salon",
+                    text: "Кампания для luxury-салона с акцентом на топовые процедуры и экспертизу.",
+                    stats: { followers: "+300%", engagement: "15.7%", reach: "+500%" }
                 }
             }
         ]
@@ -156,89 +131,63 @@ const siteData = {
 
     // Featured Case Section
     featuredCase: {
-        title: "FEATURED CASE STUDY",
-        projectTitle: "LUXURY FASHION BRAND TRANSFORMATION",
-        description: "Complete social media overhaul for a premium fashion boutique, resulting in unprecedented growth and engagement.",
+        title: "Избранный кейс",
+        projectTitle: "inwhite collection",
+        description: "Полтора года я развивала бренд: выстроила SMM-стратегию, разработала контент-план, задала Tone of Voice, выстроила сотрудничество с блогерами и создала единый визуальный стиль.Результат - узнаваемый бренд с системным продвижением и сильной коммуникацией с аудиторией.",
+        image: "inwhite-featured.png",
         results: [
-            { number: "+250%", label: "Followers Growth" },
-            { number: "+180%", label: "Sales Increase" },
-            { number: "12.5%", label: "Engagement Rate" }
+            { number: "+15%", label: "Рост подписчиков" },
+            { number: "+85%", label: "Рост вовлечённости (лайки, комментарии, сторис)" },
+            { number: "45%", label: "Рост продаж" }
         ],
-        button: { text: "View Full Case Study", href: "#" }
+        button: { text: "Посмотреть кейс полностью", href: "#clients" }
     },
 
     // Pricing Section
     pricing: {
         title: "PRICE LIST",
+        subtitle: "Точную стоимость я смогу назвать после бесплатного брифа — он ни к чему не обязывает, но помогает подобрать лучшее решение под ваш запрос.",
         packages: [
             {
-                title: "Full Package",
-                price: "$2,500",
-                period: "/month",
+                title: "Полное ведение SMM",
+                price: "от 15 000 ₽",
+                period: "/месяц",
                 features: [
-                    "Complete SMM strategy",
-                    "Daily content creation",
-                    "Community management",
-                    "Analytics & reporting",
-                    "Influencer partnerships"
+                    "SMM-стратегия + контент-план",
+                    "6 постов + 3 Reels ежемесячно",
+                    "Ежедневные Stories",
+                    "Анализ ЦА и конкурентов",
+                    "Работа с блогерами и СМИ"
                 ],
-                button: { text: "Get Started", href: "#contact" },
-                featured: false
-            },
-            {
-                title: "SMM Strategy",
-                price: "$800",
-                period: "/one-time",
-                features: [
-                    "Comprehensive strategy",
-                    "Content calendar",
-                    "Brand guidelines",
-                    "Competitor analysis",
-                    "Implementation plan"
-                ],
-                button: { text: "Choose Plan", href: "#contact" },
+                button: { text: "Оставить запрос", href: "#contact" },
                 featured: true
             },
             {
-                title: "Content Shooting",
-                price: "$500",
-                period: "/session",
+                title: "Стратегия + контент-план",
+                price: "от 10 000 ₽",
+                period: "/разово",
                 features: [
-                    "Professional photography",
-                    "Video content",
-                    "Editing & retouching",
-                    "Content optimization",
-                    "Usage rights"
+                    "Аудит и анализ ниши",
+                    "Tone of Voice и визуальный стиль",
+                    "Контент-рубрикатор",
+                    
+                    "План публикаций",
+                    "Рекомендации по внедрению"
                 ],
-                button: { text: "Book Session", href: "#contact" },
+                button: { text: "Заказать", href: "#contact" },
                 featured: false
             },
             {
-                title: "Russian Copywriting",
-                price: "$200",
-                period: "/post",
+                title: "Консультация",
+                price: "5 000 ₽",
+                period: "/разово",
                 features: [
-                    "Engaging captions",
-                    "Hashtag research",
-                    "Call-to-action optimization",
-                    "Brand voice consistency",
-                    "SEO optimization"
+                    "Разбор профиля",
+                    "Рекомендации по визуалу и контенту",
+                    "План действий на 1–2 месяца",
+                    "Ответы на вопросы"
                 ],
-                button: { text: "Order Content", href: "#contact" },
-                featured: false
-            },
-            {
-                title: "Consultation",
-                price: "$150",
-                period: "/hour",
-                features: [
-                    "Strategy review",
-                    "Performance analysis",
-                    "Optimization tips",
-                    "Q&A session",
-                    "Action plan"
-                ],
-                button: { text: "Book Consultation", href: "#contact" },
+                button: { text: "Записаться", href: "#contact" },
                 featured: false
             }
         ]
@@ -246,110 +195,101 @@ const siteData = {
 
     // Workflow Section
     workflow: {
-        title: "WORKFLOW STAGES",
+        title: "ЭТАПЫ РАБОТЫ",
         steps: [
             {
                 number: "01",
-                title: "Discovery & Research",
-                description: "Understanding your brand, target audience, and competitive landscape"
+                title: "Бриф",
+                time: "1-3 рабочих дня",
+                description: "Погружаюсь в ваш бренд, изучаю сильные стороны, целевую аудиторию и конкурентов, чтобы говорить с клиентом «на одном языке»"
             },
             {
                 number: "02",
-                title: "Strategy Development",
-                description: "Creating a comprehensive social media strategy tailored to your goals"
+                title: "Старт сотрудничества",
+                time: "Срок индивидуален",
+                description: "Обсуждаем цели, согласовываем план действий — вы вносите 50 % предоплаты, я приступаю к работе"
             },
             {
                 number: "03",
-                title: "Content Creation",
-                description: "Developing engaging, high-quality content that resonates with your audience"
+                title: "SMM-стратегия",
+                time: "5–7 рабочих дней",
+                description: "Создаю индивидуальную стратегию продвижения: визуальная концепция, tone of voice, рубрики и ключевые метрики"
             },
             {
                 number: "04",
-                title: "Implementation",
-                description: "Executing the strategy with consistent posting and community engagement"
+                title: "Контент-план",
+                time: "5–7 рабочих дней",
+                description: "Формирую контент-календарь: темы, форматы, сценарии, тексты, сторис-механики — всё, что позволит продавать нативно и красиво"
             },
             {
                 number: "05",
-                title: "Monitoring & Optimization",
-                description: "Tracking performance and continuously optimizing for better results"
+                title: "Производство и постинг",
+                time: "7–14 рабочих дней",
+                description: "Организую съёмку, создаю фото/видео-контент, пишу тексты и публикую посты. От вас — минимальное вовлечение. От меня — максимальный результат"
             },
             {
                 number: "06",
-                title: "Reporting & Analysis",
-                description: "Providing detailed reports and insights for strategic decision-making"
+                title: "Работа с блогерами",
+                time: "Срок зависит от кампании",
+                description: "Подбираю близких по духу инфлюенсеров, договариваюсь об интеграциях и привлекаю к бренду новую, «тёплую» аудиторию"
             }
         ]
     },
 
     // FAQ Section
     faq: {
-        title: "FREQUENTLY ASKED QUESTIONS",
+        title: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
         items: [
             {
-                question: "How long does it take to see results?",
-                answer: "Typically, you'll see initial engagement improvements within 2-4 weeks, with significant growth occurring over 3-6 months of consistent strategy implementation."
+                question: "С какими соцсетями вы работаете?",
+                answer: "Instagram — основная площадка для продвижения."
             },
             {
-                question: "Which social media platforms do you work with?",
-                answer: "I specialize in Instagram, Facebook, TikTok, LinkedIn, and YouTube. The platform mix is determined based on your target audience and business goals."
+                question: "Сколько времени нужно, чтобы увидеть результат?",
+                answer: "Первые изменения в охвате и вовлечённости обычно появляются через 2–3 месяца регулярной работы."
             },
             {
-                question: "Do you provide content creation services?",
-                answer: "Yes, I offer comprehensive content creation including photography, videography, graphic design, and copywriting services."
+                question: "Вы создаёте контент?",
+                answer: "Да, беру на себя полный цикл: фото, видео, дизайн и копирайтинг."
             },
             {
-                question: "How do you measure success?",
-                answer: "Success is measured through key metrics including follower growth, engagement rates, reach, website traffic, and ultimately, business conversions and sales."
+                question: "Сколько постов в неделю нужно публиковать?",
+                answer: "Для стабильного роста достаточно 3–5 публикаций в неделю. Главное — регулярность и качество контента."
             },
             {
-                question: "What's included in your monthly packages?",
-                answer: "Monthly packages include strategy development, content creation, community management, analytics reporting, and ongoing optimization based on performance data."
+                question: "Стоит ли работать с блогерами и сколько это стоит?",
+                answer: "Да, если цель — быстро увеличить охват, доверие к бренду и продажи через рекомендации. Стоимость зависит от ниши и охватов инфлюенсера."
             }
         ]
     },
 
     // Certificates Section
     certificates: {
-        title: "CERTIFICATES & QUALIFICATIONS",
+        title: "CЕРТИФИКАТЫ И ОБРАЗОВАНИЕ",
         items: [
             {
-                icon: "fab fa-google",
-                title: "Google Digital Marketing",
-                description: "Certified in Google Ads and Analytics"
-            },
-            {
-                icon: "fab fa-facebook",
-                title: "Meta Business Suite",
-                description: "Facebook & Instagram Marketing Expert"
-            },
-            {
-                icon: "fas fa-graduation-cap",
-                title: "Digital Marketing Institute",
-                description: "Professional Diploma in Digital Marketing"
-            },
-            {
-                icon: "fab fa-linkedin",
-                title: "LinkedIn Marketing",
-                description: "LinkedIn Marketing Solutions Certified"
+                image: "smm-school-certificate.jpeg",
+                title: "International SMM Diploma",
+                description: "Авторский курс в Барселоне с практикой и специализацией на продвижении брендов на российском рынке"
             }
         ]
     },
 
     // Contact Section
     contact: {
-        title: "GET IN TOUCH",
-        heading: "Ready to transform your social media presence?",
-        description: "Let's discuss your project and create a strategy that drives real results for your business.",
+        title: "СВЯЗАТЬСЯ СО МНОЙ",
+        heading: "Готовы преобразить ваши социальные сети?",
+        description: "Обсудим ваш проект и создадим стратегию, которая принесёт бизнес-результаты.",
         methods: [
             {
                 icon: "fab fa-telegram",
                 text: "Telegram",
-                href: "https://t.me/yourusername"
+                href: "https://t.me/O_GLS"
             },
             {
-                icon: "fas fa-envelope",
-                text: "Email",
-                href: "mailto:hello@smmspecialist.com"
+                icon: "fab fa-whatsapp",
+                text: "WhatsApp",
+                href: "https://wa.me/79288200263"
             }
         ]
     },

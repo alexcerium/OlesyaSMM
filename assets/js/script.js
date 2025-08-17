@@ -12,6 +12,59 @@ function getImageWithFallback(basePath) {
     return jpgPath;
 }
 
+// Heart animation for pricing buttons
+function createHeartAnimation(button, callback) {
+    const numHearts = 22;
+    let heartsCreated = 0;
+    
+    // Get the button position for heart origin
+    const buttonRect = button.getBoundingClientRect();
+    const pricingSection = document.querySelector('.pricing');
+    const sectionRect = pricingSection.getBoundingClientRect();
+    
+    // Calculate button center relative to pricing section
+    const buttonCenterX = buttonRect.left - sectionRect.left + buttonRect.width / 2;
+    const buttonCenterY = buttonRect.top - sectionRect.top + buttonRect.height / 2;
+    
+    // Trigger callback quickly after animation starts
+    setTimeout(() => {
+        if (callback) {
+            callback();
+        }
+    }, 400); // Much faster redirect - only 400ms delay
+    
+    for (let i = 0; i < numHearts; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('span');
+            heart.className = 'heart-particle';
+            heart.textContent = '🤍';
+            
+            // Start from button position with slight random offset
+            const startX = buttonCenterX + (Math.random() - 0.5) * 60; // ±30px horizontal spread
+            const startY = buttonCenterY + (Math.random() - 0.5) * 30; // ±15px vertical spread
+            
+            // Fly upwards with much wider horizontal variation
+            const horizontalVariation = (Math.random() - 0.5) * 600; // ±300px horizontal movement
+            const upwardDistance = 250 + Math.random() * 350; // 250-600px upward flight
+            
+            heart.style.left = startX + 'px';
+            heart.style.top = startY + 'px';
+            heart.style.setProperty('--end-x', horizontalVariation + 'px');
+            heart.style.setProperty('--end-y', -upwardDistance + 'px');
+            
+            pricingSection.appendChild(heart);
+            heartsCreated++;
+            
+            // Remove heart after animation (no tracking needed since redirect happens quickly)
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 2500);
+        }, i * 50); // Faster creation for snappier effect
+    }
+}
+
 // Function to handle image loading errors and try alternative extensions
 function handleImageError(img) {
     const currentSrc = img.src;
@@ -152,12 +205,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.skill-item, .client-card, .pricing-card, .step, .certificate-card');
+    const animateElements = document.querySelectorAll('.client-card, .pricing-card, .step, .certificate-card');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+
+    // Special animation observer for software and collaborators sections
+    const skillsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillItems = entry.target.querySelectorAll('.software-item, .collaborator-item');
+                skillItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 150); // Stagger animation
+                });
+            } else {
+                // Reset animation when section is out of view
+                const skillItems = entry.target.querySelectorAll('.software-item, .collaborator-item');
+                skillItems.forEach(item => {
+                    item.classList.remove('animate');
+                });
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe software and collaborators sections
+    const softwareSection = document.querySelector('.software-section');
+    const collaboratorsSection = document.querySelector('.collaborators-section');
+    
+    if (softwareSection) skillsObserver.observe(softwareSection);
+    if (collaboratorsSection) skillsObserver.observe(collaboratorsSection);
+
+    // Scroll-triggered border shimmer animation
+    let shimmerTimeout;
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        clearTimeout(shimmerTimeout);
+        
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDirection = currentScrollTop > lastScrollTop ? 'down' : 'up';
+        lastScrollTop = currentScrollTop;
+        
+        shimmerTimeout = setTimeout(() => {
+            const skillItems = document.querySelectorAll('.software-item.animate, .collaborator-item.animate');
+            skillItems.forEach((item, index) => {
+                setTimeout(() => {
+                    // Add shimmer class for border animation
+                    item.classList.add('shimmer');
+                    setTimeout(() => {
+                        item.classList.remove('shimmer');
+                    }, 2000);
+                }, index * 100);
+            });
+        }, 50);
     });
 
     // Parallax effect for hero section
@@ -177,8 +285,7 @@ function openProjectModal(projectId) {
     const modalContent = document.querySelector('.modal-content');
     
     // Update modal content based on project
-    const projectData = { id: projectId };
-    updateModalContent(projectData);
+    updateModalContent(projectId);
     
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -187,12 +294,37 @@ function openProjectModal(projectId) {
     setTimeout(() => {
         modal.style.opacity = '1';
         modalContent.style.transform = 'scale(1)';
+        
+        // Start entrance animations after modal appears
+        setTimeout(() => {
+            // Animate project image first
+            const projectImage = document.querySelector('.project-image');
+            if (projectImage) {
+                projectImage.classList.add('animate');
+            }
+            
+            // Then animate content sections sequentially
+            setTimeout(() => {
+                const projectContent = document.querySelector('.project-content');
+                if (projectContent) {
+                    projectContent.classList.add('animate');
+                }
+            }, 300);
+            
+        }, 200);
     }, 10);
 }
 
 function closeModal() {
     const modal = document.getElementById('projectModal');
     const modalContent = document.querySelector('.modal-content');
+    
+    // Reset entrance animations
+    const projectImage = document.querySelector('.project-image');
+    const projectContent = document.querySelector('.project-content');
+    
+    if (projectImage) projectImage.classList.remove('animate');
+    if (projectContent) projectContent.classList.remove('animate');
     
     modal.style.opacity = '0';
     modalContent.style.transform = 'scale(0.8)';
@@ -205,40 +337,10 @@ function closeModal() {
 
 function getProjectData(projectId) {
     const project = siteData.clients.items.find(item => item.id == projectId);
-    return project ? project.modalData : siteData.clients.items[0].modalData;
+    return project ? project.modal : siteData.clients.items[0].modal;
 }
 
-function updateModalContent(projectData) {
-    const project = siteData.clients.items.find(item => item.id == projectData.id);
-    if (!project) return;
-    
-    const modalBody = document.querySelector('.modal-body');
-    const stats = project.modalData.stats;
-    
-    modalBody.innerHTML = `
-        <div class="project-gallery">
-            <div class="project-image">
-                <i class="fas fa-image"></i>
-                <h3>${project.modalData.title}</h3>
-                <p>${project.modalData.description}</p>
-            </div>
-            <div class="project-stats">
-                <div class="stat">
-                    <h4>Followers Growth</h4>
-                    <span class="stat-number">${stats.followers}</span>
-                </div>
-                <div class="stat">
-                    <h4>Engagement Rate</h4>
-                    <span class="stat-number">${stats.engagement}</span>
-                </div>
-                <div class="stat">
-                    <h4>Reach Increase</h4>
-                    <span class="stat-number">${stats.reach}</span>
-                </div>
-            </div>
-        </div>
-    `;
-}
+
 
 
 
@@ -298,19 +400,36 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Download CV functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const downloadBtn = document.querySelector('a[href="#"]');
-    if (downloadBtn && downloadBtn.textContent === 'Download CV') {
-        downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('CV download feature will be implemented soon!', 'info');
-        });
-    }
-});
+// Download functionality is now handled by the download attribute in the HTML
 
 // Add some additional interactive features
 document.addEventListener('DOMContentLoaded', function() {
+    // Heart animation for pricing buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-outline')) {
+            e.preventDefault();
+            const href = e.target.getAttribute('data-href');
+            
+            createHeartAnimation(e.target, function() {
+                // Redirect after ALL hearts have disappeared
+                if (href.startsWith('#')) {
+                    // Smooth scroll to section
+                    const targetSection = document.querySelector(href);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    // External link
+                    window.location.href = href;
+                }
+            });
+        }
+    });
+
     // Hover effects for pricing cards
     const pricingCards = document.querySelectorAll('.pricing-card');
     pricingCards.forEach(card => {

@@ -5,49 +5,67 @@
     padding: var(--spacing-4xl) 0;
 }
 
-.certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
-}
-
-.certificate-card {
-    background: var(--color-primary-gradient);
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-2xl);
-    text-align: center;
-    transition: transform var(--transition-normal);
-}
-
-.certificate-card:hover {
-    transform: translateY(-5px);
-}
-
-.certificate-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--color-background-primary);
-    border-radius: var(--border-radius-full);
+.certificates-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.certificate-icon i {
+.certificate-title {
     font-size: var(--font-size-3xl);
-    color: var(--color-accent-gold);
-}
-
-.certificate-card h3 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-black);
     color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xl);
+    font-family: var(--font-heading);
 }
 
-.certificate-card p {
+.certificate-image {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--border-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-2xl);
+    background: var(--color-primary-gradient);
+    position: relative;
+}
+
+.certificate-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fallback for when image is not loaded */
+.certificate-image::before {
+    content: 'SMM School Certificate';
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-lg);
+    color: #C9A676;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+/* Show fallback when image fails to load */
+.certificate-image.no-image::before {
+    opacity: 1;
+}
+
+.certificate-description {
+    font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    max-width: 500px;
 }
 
 /* Responsive Certificates */
@@ -56,27 +74,21 @@
         padding: var(--spacing-3xl) 0;
     }
     
-    .certificates-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+    .certificates-content {
         padding: 0 var(--spacing-md);
     }
     
-    .certificate-card {
-        padding: var(--spacing-lg);
-    }
-    
-    .certificate-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .certificate-icon i {
+    .certificate-title {
         font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-lg);
     }
     
-    .certificate-card h3 {
-        font-size: var(--font-size-lg);
+    .certificate-image {
+        max-width: 100%;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .certificate-description {
+        font-size: var(--font-size-base);
     }
 }

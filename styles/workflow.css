@@ -12,12 +12,16 @@
 }
 
 .step {
-    background: var(--color-primary-gradient);
+    background: var(--color-background-primary);
+    border: 2px solid #C9A676;
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-2xl);
-    text-align: center;
     transition: transform var(--transition-normal);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 100%;
 }
 
 .step:hover {
@@ -25,28 +29,50 @@
 }
 
 .step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--color-accent-gold);
-    color: var(--color-text-primary);
+    width: 50px;
+    height: 50px;
+    background: #C9A676;
+    color: var(--color-background-primary);
     border-radius: var(--border-radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-black);
-    margin: 0 auto var(--spacing-lg);
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
 }
 
-.step h3 {
-    font-size: var(--font-size-xl);
+.step-header {
+    display: flex;
+    align-items: center;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-primary);
+}
+
+.step-header h3 {
+    font-size: var(--font-size-lg);
+    color: #8B4513;
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-heading);
+    margin: 0;
+    flex: 1;
+}
+
+.step-time {
+    font-size: var(--font-size-sm);
+    color: #C9A676;
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    margin-bottom: var(--spacing-md);
 }
 
 .step p {
     color: var(--color-text-secondary);
     line-height: var(--line-height-normal);
+    margin: 0;
+    flex: 1;
 }
 
 /* Responsive Workflow */
@@ -63,16 +89,23 @@
     
     .step {
         padding: var(--spacing-lg);
+        height: auto;
+        min-height: 250px;
     }
     
     .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: var(--font-size-xl);
-        margin-bottom: var(--spacing-md);
+        width: 45px;
+        height: 45px;
+        font-size: var(--font-size-lg);
+        margin-right: var(--spacing-sm);
     }
     
-    .step h3 {
-        font-size: var(--font-size-lg);
+    .step-header h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .step-time {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-sm);
     }
 }
