@@ -195,7 +195,6 @@ function loadClients() {
                 </div>
                 <h3>${client.title}</h3>
                 <p>${client.description}</p>
-                <span class="results">${client.results}</span>
             </div>`
         ).join('');
     }
@@ -367,20 +366,6 @@ function updateModalContent(projectId) {
             <div class="project-content">
                 <h2 class="project-title">${modal.title}</h2>
                 <p class="project-description">${modal.text}</p>
-                <div class="project-stats">
-                    <div class="stat">
-                        <h4>Followers Growth</h4>
-                        <span class="stat-number">${modal.stats.followers}</span>
-                    </div>
-                    <div class="stat">
-                        <h4>Engagement Rate</h4>
-                        <span class="stat-number">${modal.stats.engagement}</span>
-                    </div>
-                    <div class="stat">
-                        <h4>Reach Increase</h4>
-                        <span class="stat-number">${modal.stats.reach}</span>
-                    </div>
-                </div>
             </div>
         </div>
     `;

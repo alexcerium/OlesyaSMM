@@ -25,7 +25,7 @@ const siteData = {
         title: "PROFESSIONAL SMM SPECIALIST",
         subtitle: "Приведу вам клиентов через стратегический SMM",
         buttons: [
-            { text: "Скачать портфолио", href: "/assets/Portfolio.pdf", type: "primary", download: "Portfolio.pdf" },
+            { text: "Скачать портфолио", href: "assets/Portfolio.pdf", type: "primary", download: "Portfolio.pdf" },
             { text: "Связаться со мной", href: "#contact", type: "secondary" }
         ]
     },
@@ -90,42 +90,36 @@ const siteData = {
             {
                 id: 1,
                 preview: "inwhite-preview.jpeg",
-                title: "Dress Rental Boutique",
-                description: "Элегантный сервис аренды платьев",
-                results: "+150% вовлечённости",
+                title: "inwhite_collection",
+                description: "Вечерние платья | Свадебные платья | ПРОКАТ ПРОДАЖА",
                 modal: {
-                    image: "inwhite.jpeg",
-                    title: "INWHITE Dress Rental Boutique",
-                    text: "Акцент на элегантный сервис аренды с разнообразием стилей и удобством для клиента.",
-                    stats: { followers: "+250%", engagement: "8.5%", reach: "+400%" }
+                  image: "inwhite.png",
+                  title: "inwhite_collection",
+                  text: "• Разработала SMM-стратегию\n• Составила контент-план\n• Создала визуал в едином tone of voice\n• Подобрала блогеров для коллабораций\n• Увеличила охваты и получила измеримый результат"
                 }
-            },
-            {
+              },
+              {
                 id: 2,
-                preview: "restaurant-preview.jpeg",
-                title: "Restaurant Chain",
-                description: "Ресторан премиального уровня",
-                results: "+200% подписчиков",
+                preview: "amalicouture-preview.jpeg",
+                title: "amalicouture",
+                description: "Работала сторисмейкером для бренда Amali Couture",
                 modal: {
-                    image: "restaurant.jpeg",
-                    title: "LUXURY Restaurant Chain",
-                    text: "SMM-стратегия с акцентом на кулинарное совершенство и незабываемый клиентский опыт.",
-                    stats: { followers: "+200%", engagement: "12.3%", reach: "+350%" }
+                  image: "amalicouture.png",
+                  title: "Amali Couture",
+                  text: "• Работала сторисмейкером для бренда Amali Couture\n• Разработала креативные сторис-решения с акцентом на вовлечение аудитории\n• Использовала отметки и интерактивы для увеличения охватов\n• В результате удалось значительно повысить просмотры и активность подписчиков"
                 }
-            },
-            {
+              },
+              {
                 id: 3,
-                preview: "beauty-preview.jpeg",
-                title: "Beauty Salon",
-                description: "Премиальные бьюти-услуги",
-                results: "+300% записей",
+                preview: "secret_beauty_cosmetics_-preview.jpeg",
+                title: "secret_beauty_cosmetics_",
+                description: "Работала с брендом secret_beauty_cosmetics_",
                 modal: {
-                    image: "beauty.jpeg",
-                    title: "PREMIUM Beauty Salon",
-                    text: "Кампания для luxury-салона с акцентом на топовые процедуры и экспертизу.",
-                    stats: { followers: "+300%", engagement: "15.7%", reach: "+500%" }
+                  image: "secret_beauty_cosmetics_.png",
+                  title: "secret_beauty_cosmetics_",
+                  text: "• Работала с брендом secret_beauty_cosmetics_\n• Создала хайлайты, шапку профиля и аватар бренда\n• Провела консультацию по подбору блогеров для сотрудничества\n• Проанализировала и подготовила статистику аккаунта\n• Обеспечила рост подписчиков и увеличение вовлечённости"
                 }
-            }
+              }
         ]
     },
 
@@ -149,8 +143,8 @@ const siteData = {
         subtitle: "Точную стоимость я смогу назвать после бесплатного брифа — он ни к чему не обязывает, но помогает подобрать лучшее решение под ваш запрос.",
         packages: [
             {
-                title: "Полное ведение SMM",
-                price: "от 15 000 ₽",
+                title: "Полное ведение Instagram",
+                price: "от 20 000 ₽",
                 period: "/месяц",
                 features: [
                     "SMM-стратегия + контент-план",
@@ -160,7 +154,22 @@ const siteData = {
                     "Работа с блогерами и СМИ"
                 ],
                 button: { text: "Оставить запрос", href: "#contact" },
-                featured: true
+                featured: false
+            },
+            {
+                title: "Полное ведение Telegram",
+                price: "от 20 000 ₽",
+                period: "/месяц",
+                features: [
+                    "Оформление канала и визуал",
+                    "Контент-план + 5-7 постов в неделю",
+                    "Подготовка текстов и ваших фото, видео",
+                    "Кружки, подогревающие интерес",
+                    "Модерация и ответы",
+                    "Аналитика и рост"
+                ],
+                button: { text: "Оставить запрос", href: "#contact" },
+                featured: false
             },
             {
                 title: "Стратегия + контент-план",
@@ -170,7 +179,6 @@ const siteData = {
                     "Аудит и анализ ниши",
                     "Tone of Voice и визуальный стиль",
                     "Контент-рубрикатор",
-                    
                     "План публикаций",
                     "Рекомендации по внедрению"
                 ],
@@ -242,7 +250,7 @@ const siteData = {
         items: [
             {
                 question: "С какими соцсетями вы работаете?",
-                answer: "Instagram — основная площадка для продвижения."
+                answer: "Работаю с Instagram и Telegram - ведение, оформление и продвижение аккаунтов."
             },
             {
                 question: "Сколько времени нужно, чтобы увидеть результат?",
