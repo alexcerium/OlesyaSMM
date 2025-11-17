@@ -569,10 +569,29 @@ a:hover{
   margin-bottom:var(--s-md);
 }
 
-.case-actions{
-  margin-top:.25rem;
+/* колонка с картинкой и кнопкой */
+.case-visual{
   display:flex;
-  justify-content:flex-start;
+  flex-direction:column;
+  align-items:center;
+  gap:var(--s-sm);
+}
+
+.case-image{
+  max-width:700px;
+  width:100%;
+}
+
+.case-study-image{
+  border-radius:var(--r-lg);
+}
+
+/* кнопка под фото */
+.case-actions{
+  margin-top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
 }
 
 .result{
@@ -594,20 +613,6 @@ a:hover{
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--color-muted);
-}
-
-.case-visual{
-  display:flex;
-  justify-content:center;
-}
-
-.case-image{
-  max-width:700px;
-  width:100%;
-}
-
-.case-study-image{
-  border-radius:var(--r-lg);
 }
 
 .card-checklist{
@@ -638,24 +643,21 @@ a:hover{
 
 
 /* =========================================================
-   POSTING EXAMPLES — Pinterest masonry
+   POSTING EXAMPLES — ровная сетка
 ========================================================= */
 .posting-examples{
   padding:var(--section-padding-y) 0;
 }
 
-/* Колонки вместо grid */
 .posting-grid{
-  column-count:3;                  
-  column-gap:var(--s-sm);
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:var(--s-sm);
   margin-top:var(--section-block-gap);
 }
 
-/* Карточка ведёт себя как «блок в колонке» */
+/* Карточка в сетке */
 .posting-item{
-  display:block;
-  break-inside:avoid;              
-  margin-bottom:var(--s-sm);       
   border-radius:var(--r-lg);
   overflow:hidden;
   background:var(--color-surface);
@@ -672,15 +674,18 @@ a:hover{
   display:block;
 }
 
-/* Мобильный: 2 колонки, тот же водопад */
+/* Планшет — 2 колонки */
+@media (max-width: 990px){
+  .posting-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+/* Мобильный — 1 колонка */
 @media (max-width: 680px){
   .posting-grid{
-    column-count:2;
-    column-gap:var(--s-xs);
-  }
-
-  .posting-item{
-    margin-bottom:var(--s-xs);
+    grid-template-columns:1fr;
+    gap:var(--s-xs);
   }
 }
 
@@ -1036,8 +1041,14 @@ a:hover{
    RESPONSIVE
 ========================================================= */
 @media (max-width: 990px){
+  .hero-container{
+    padding:var(--section-padding-y-lg) var(--s-md) var(--section-padding-y);
+  }
+
   .hero-content{
-    grid-template-columns:1fr;
+    display:flex;
+    flex-direction:column;
+    gap:var(--s-md);
     text-align:center;
   }
 
